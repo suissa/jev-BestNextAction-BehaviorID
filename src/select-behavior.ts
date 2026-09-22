@@ -57,7 +57,9 @@ export async function selectBehaviorWithJev(
 
   const result = await evaluate({
     model,
-    state,
+    // A JSON string keeps arbitrary application facts inside the evaluation
+    // model's JSON-safe input boundary without weakening ConversationState.
+    state: JSON.stringify(state),
     questions: {
       nextBehaviorId: {
         type: "choice",
@@ -82,10 +84,14 @@ export async function selectBehaviorWithJev(
       | Record<string, number>
       | undefined;
 
+  const confidence = confidenceByQuestion?.nextBehaviorId;
+
   return applyDecisionPolicy({
-    probabilities: answer.probabilities,
-    confidence: confidenceByQuestion?.nextBehaviorId,
-    thresholds: options.thresholds,
+    ...(answer.probabilities
+      ? { probabilities: answer.probabilities }
+      : {}),
+    ...(confidence === undefined ? {} : { confidence }),
+    ...(options.thresholds ? { thresholds: options.thresholds } : {}),
     fallbackBehaviorId: FALLBACK_BEHAVIOR_ID
   });
 }
