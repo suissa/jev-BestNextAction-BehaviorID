@@ -1,0 +1,22 @@
+{
+  "name": "jev-best-next-action-behaviorid",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Select the best next BehaviorID with Jev and use its Atomic Skill to prompt an LLM.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "demo": "tsx src/demo.ts"
+  },
+  "dependencies": {
+    "ai": "^7.0.105",
+    "dotenv": "^17.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
