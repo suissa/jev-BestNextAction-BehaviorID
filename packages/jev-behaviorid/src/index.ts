@@ -3,3 +3,5 @@ export * from "./ontology.js";
 export * from "./criteria.js";
 export * from "./math.js";
 export * from "./provider.js";
+export * from "./customer-service-actions.js";
+export * from "./customer-service-provider.js";
