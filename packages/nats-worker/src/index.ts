@@ -4,7 +4,8 @@ import {
   DEFAULT_BEHAVIOR_IDS,
   DEFAULT_CRITERIA_VERSION,
   DEFAULT_ONTOLOGY_VERSION,
-  JevBehaviorIDPredictor
+  JevBehaviorIDPredictor,
+  JevCustomerServiceActionMapper
 } from "@suissa/jev-behaviorid";
 
 const MessageSchema = z.object({
@@ -12,16 +13,27 @@ const MessageSchema = z.object({
   timestamp: z.string().min(1)
 });
 
-const RequestSchema = z.object({
-  correlationId: z.string().optional(),
-  messages: z.tuple([MessageSchema, MessageSchema, MessageSchema])
-});
+const RequestSchema = z.discriminatedUnion("kind", [
+  z.object({
+    kind: z.literal("behaviorid").default("behaviorid"),
+    correlationId: z.string().optional(),
+    messages: z.tuple([MessageSchema, MessageSchema, MessageSchema])
+  }),
+  z.object({
+    kind: z.literal("customer_service_actions"),
+    correlationId: z.string().optional(),
+    customerPrevious: MessageSchema,
+    systemPrevious: MessageSchema,
+    customerLatest: MessageSchema
+  })
+]);
 
 const predictor = new JevBehaviorIDPredictor({
   definitions: DEFAULT_BEHAVIOR_IDS,
   ontologyVersion: DEFAULT_ONTOLOGY_VERSION,
   criteriaVersion: DEFAULT_CRITERIA_VERSION
 });
+const customerServiceMapper = new JevCustomerServiceActionMapper();
 
 const natsUrl = process.env.NATS_URL ?? "nats://127.0.0.1:4222";
 const inputSubject = process.env.NATS_SUBJECT_IN ?? "behaviorid.predict";
@@ -38,9 +50,12 @@ for await (const msg of sub) {
 
   try {
     const request = RequestSchema.parse(codec.decode(msg.data));
-    const result = await predictor.predict(request.messages);
+    const result = request.kind === "customer_service_actions"
+      ? await customerServiceMapper.score(request)
+      : await predictor.predict(request.messages);
     const payload = {
       correlationId: request.correlationId,
+      kind: request.kind,
       ok: true,
       durationMs: Date.now() - startedAt,
       result
