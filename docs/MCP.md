@@ -1,30 +1,39 @@
-# MCP Server
+# MCP server
 
 Run:
 
 ```bash
-bun install
-OPENROUTER_API_KEY=... bun run mcp
+bun run mcp
 ```
 
-The server uses stdio transport and exposes the tool:
+The stdio server exposes two read-only decision-support tools.
 
-```
-behaviorid_probabilities
-```
+## `behaviorid_probabilities`
 
 Input:
 
 ```json
 {
   "messages": [
-    {"content":"I liked it, but it seems expensive","timestamp":"2026-09-23T10:00:00Z"},
-    {"content":"The competitor has something similar","timestamp":"2026-09-23T10:01:15Z"},
-    {"content":"What exactly is the difference?","timestamp":"2026-09-23T10:03:40Z"}
+    {"content":"...","timestamp":"2026-09-23T12:00:00Z"},
+    {"content":"...","timestamp":"2026-09-23T12:03:00Z"},
+    {"content":"...","timestamp":"2026-09-23T12:08:00Z"}
   ]
 }
 ```
 
-The tool returns every configured BehaviorID probability plus entropy, provider metadata, ontology version, and criteria version.
+The response includes every configured BehaviorID probability. It does not choose a next best action.
 
-It intentionally does not expose a `next_best_action` tool and does not choose an action.
+## `customer_service_action_probabilities`
+
+Input is explicitly ordered to preserve local conversational causality:
+
+```json
+{
+  "customerPrevious": {"content":"...","timestamp":"2026-09-23T12:00:00Z"},
+  "systemPrevious": {"content":"...","timestamp":"2026-09-23T12:03:00Z"},
+  "customerLatest": {"content":"...","timestamp":"2026-09-23T12:08:00Z"}
+}
+```
+
+It returns the probability for every generic action in the customer-service map. The result is advisory: no action is selected, executed, or authorized by the tool. See [Customer-service actions](CUSTOMER-SERVICE-ACTIONS.md).
