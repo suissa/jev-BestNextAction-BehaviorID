@@ -13,18 +13,19 @@ const MessageSchema = z.object({
   timestamp: z.string().min(1)
 });
 
-const RequestSchema = z.discriminatedUnion("kind", [
-  z.object({
-    kind: z.literal("behaviorid").default("behaviorid"),
-    correlationId: z.string().optional(),
-    messages: z.tuple([MessageSchema, MessageSchema, MessageSchema])
-  }),
+/** The legacy behaviorid shape remains valid when `kind` is omitted. */
+const RequestSchema = z.union([
   z.object({
     kind: z.literal("customer_service_actions"),
     correlationId: z.string().optional(),
     customerPrevious: MessageSchema,
     systemPrevious: MessageSchema,
     customerLatest: MessageSchema
+  }),
+  z.object({
+    kind: z.literal("behaviorid").optional(),
+    correlationId: z.string().optional(),
+    messages: z.tuple([MessageSchema, MessageSchema, MessageSchema])
   })
 ]);
 
@@ -50,12 +51,13 @@ for await (const msg of sub) {
 
   try {
     const request = RequestSchema.parse(codec.decode(msg.data));
-    const result = request.kind === "customer_service_actions"
+    const kind = request.kind ?? "behaviorid";
+    const result = kind === "customer_service_actions"
       ? await customerServiceMapper.score(request)
       : await predictor.predict(request.messages);
     const payload = {
       correlationId: request.correlationId,
-      kind: request.kind,
+      kind,
       ok: true,
       durationMs: Date.now() - startedAt,
       result
