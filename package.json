@@ -1,0 +1,11 @@
+{
+  "name": "jev-bestnextaction-behaviorid",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "bun test",
+    "mcp": "bun run packages/mcp-server/src/index.ts",
+    "nats": "bun run packages/nats-worker/src/index.ts"
+  }
+}
