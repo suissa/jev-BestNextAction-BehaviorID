@@ -5,12 +5,13 @@ import {
   DEFAULT_BEHAVIOR_IDS,
   DEFAULT_CRITERIA_VERSION,
   DEFAULT_ONTOLOGY_VERSION,
-  JevBehaviorIDPredictor
+  JevBehaviorIDPredictor,
+  JevCustomerServiceActionMapper
 } from "@suissa/jev-behaviorid";
 
 const server = new McpServer({
   name: "jev-behaviorid",
-  version: "0.1.0"
+  version: "0.2.0"
 });
 
 const predictor = new JevBehaviorIDPredictor({
@@ -18,6 +19,7 @@ const predictor = new JevBehaviorIDPredictor({
   ontologyVersion: DEFAULT_ONTOLOGY_VERSION,
   criteriaVersion: DEFAULT_CRITERIA_VERSION
 });
+const customerServiceMapper = new JevCustomerServiceActionMapper();
 
 const MessageSchema = z.object({
   content: z.string().min(1),
@@ -27,15 +29,23 @@ const MessageSchema = z.object({
 server.tool(
   "behaviorid_probabilities",
   "Return the Jev probability distribution for every configured next BehaviorID from exactly three timestamped messages. This tool does not choose a next best action.",
+  { messages: z.tuple([MessageSchema, MessageSchema, MessageSchema]) },
+  async ({ messages }) => ({
+    content: [{ type: "text", text: JSON.stringify(await predictor.predict(messages), null, 2) }]
+  })
+);
+
+server.tool(
+  "customer_service_action_probabilities",
+  "Return probabilities for every generic customer-service action from customer previous → system previous → customer latest. It only scores the map; it never chooses, executes, or authorizes an action.",
   {
-    messages: z.tuple([MessageSchema, MessageSchema, MessageSchema])
+    customerPrevious: MessageSchema,
+    systemPrevious: MessageSchema,
+    customerLatest: MessageSchema
   },
-  async ({ messages }) => {
-    const result = await predictor.predict(messages);
-    return {
-      content: [{ type: "text", text: JSON.stringify(result, null, 2) }]
-    };
-  }
+  async (context) => ({
+    content: [{ type: "text", text: JSON.stringify(await customerServiceMapper.score(context), null, 2) }]
+  })
 );
 
 const transport = new StdioServerTransport();
