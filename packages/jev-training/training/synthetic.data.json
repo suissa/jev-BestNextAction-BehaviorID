@@ -1,0 +1,3416 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_type": "synthetic_conversational_behavior_transition",
+  "language": "pt-BR",
+  "purpose": "Treinar e avaliar a inferência da transição entre a primeira e a terceira mensagem do cliente em janelas de três mensagens.",
+  "rules": {
+    "message_order": [
+      "cliente",
+      "sistema",
+      "cliente"
+    ],
+    "transition_anchor": "A primeira e a terceira mensagens do cliente representam, respectivamente, from_behavior_id e to_behavior_id.",
+    "likelihood_order": "Para cada estado de origem, most_likely_transitions contém os 6 menores transition_costs e least_likely_transitions os 6 maiores; empates seguem a ordem canônica dos estados.",
+    "privacy": "Números de telefone e conteúdos são inteiramente sintéticos; não representam pessoas reais."
+  },
+  "states": [
+    "HES",
+    "CUR",
+    "COM",
+    "VAL",
+    "ENG",
+    "ACE",
+    "INP",
+    "RES",
+    "NEG",
+    "DES",
+    "ABO",
+    "AAN"
+  ],
+  "behavior_ids": {
+    "HES": {
+      "meaning": "hesitação",
+      "most_likely_transitions": [
+        {
+          "id": "HES-HES-most_likely-01",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "HES",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:00:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-01T09:01:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-01T09:04:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "HES-CUR-most_likely-02",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:07:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-02T09:08:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-02T09:11:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "HES-VAL-most_likely-03",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:14:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-03T09:15:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-03T09:18:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "HES-AAN-most_likely-04",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:21:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-04T09:22:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-04T09:25:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "HES-COM-most_likely-05",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:28:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-05T09:29:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-05T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "HES-DES-most_likely-06",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:35:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-06T09:36:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-06T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "HES-ENG-least_likely-07",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:42:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-07T09:43:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-07T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "HES-RES-least_likely-08",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:49:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-08T09:50:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-08T09:53:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "HES-ABO-least_likely-09",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:06:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-09T09:07:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-09T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        },
+        {
+          "id": "HES-ACE-least_likely-10",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:13:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-10T09:14:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-10T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "HES-NEG-least_likely-11",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:20:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-11T09:21:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-11T09:24:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "HES-INP-least_likely-12",
+          "from_behavior_id": "HES",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:27:00-03:00",
+              "phone": "+15550000001",
+              "content": "Gostei, mas ainda não sei se isso é mesmo para mim. Preciso pensar melhor."
+            },
+            {
+              "timestamp": "2026-09-12T09:28:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-12T09:31:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        }
+      ]
+    },
+    "CUR": {
+      "meaning": "curiosidade",
+      "most_likely_transitions": [
+        {
+          "id": "CUR-CUR-most_likely-13",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:34:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-13T09:35:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-13T09:38:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "CUR-COM-most_likely-14",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.2,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:41:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-14T09:42:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-14T09:45:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "CUR-VAL-most_likely-15",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:48:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-15T09:49:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-15T09:52:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "CUR-HES-most_likely-16",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:05:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-16T09:06:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-16T09:09:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "CUR-ENG-most_likely-17",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:12:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-17T09:13:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-17T09:16:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "CUR-AAN-most_likely-18",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:19:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-18T09:20:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-18T09:23:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "CUR-ACE-least_likely-19",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:26:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-19T09:27:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-19T09:30:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "CUR-DES-least_likely-20",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:33:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-20T09:34:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-20T09:37:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "CUR-INP-least_likely-21",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:40:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-01T09:41:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-01T09:44:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "CUR-RES-least_likely-22",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:47:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-02T09:48:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-02T09:51:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "CUR-NEG-least_likely-23",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:04:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-03T09:05:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-03T09:08:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "CUR-ABO-least_likely-24",
+          "from_behavior_id": "CUR",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.9,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:11:00-03:00",
+              "phone": "+15550000001",
+              "content": "Como isso funciona na prática? Quero entender o que eu conseguiria fazer."
+            },
+            {
+              "timestamp": "2026-09-04T09:12:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-04T09:15:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "COM": {
+      "meaning": "comparação",
+      "most_likely_transitions": [
+        {
+          "id": "COM-COM-most_likely-25",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "COM",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:18:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-05T09:19:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-05T09:22:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "COM-VAL-most_likely-26",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.2,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:25:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-06T09:26:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-06T09:29:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "COM-CUR-most_likely-27",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-07T09:33:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-07T09:36:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "COM-ENG-most_likely-28",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-08T09:40:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-08T09:43:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "COM-HES-most_likely-29",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-09T09:47:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-09T09:50:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "COM-ACE-most_likely-30",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:03:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-10T09:04:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-10T09:07:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "COM-AAN-least_likely-31",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-11T09:11:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-11T09:14:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "COM-INP-least_likely-32",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-12T09:18:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-12T09:21:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "COM-RES-least_likely-33",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:24:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-13T09:25:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-13T09:28:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "COM-DES-least_likely-34",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:31:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-14T09:32:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-14T09:35:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "COM-NEG-least_likely-35",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:38:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-15T09:39:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-15T09:42:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "COM-ABO-least_likely-36",
+          "from_behavior_id": "COM",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:45:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou olhando outras opções também. Qual é a diferença real para as alternativas?"
+            },
+            {
+              "timestamp": "2026-09-16T09:46:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-16T09:49:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "VAL": {
+      "meaning": "busca de validação",
+      "most_likely_transitions": [
+        {
+          "id": "VAL-VAL-most_likely-37",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:02:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-17T09:03:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-17T09:06:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "VAL-COM-most_likely-38",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:09:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-18T09:10:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-18T09:13:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "VAL-ACE-most_likely-39",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:16:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-19T09:17:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-19T09:20:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "VAL-CUR-most_likely-40",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:23:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-20T09:24:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-20T09:27:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "VAL-ENG-most_likely-41",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:30:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-01T09:31:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-01T09:34:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "VAL-HES-most_likely-42",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:37:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-02T09:38:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-02T09:41:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "VAL-AAN-least_likely-43",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:44:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-03T09:45:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-03T09:48:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "VAL-INP-least_likely-44",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:01:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-04T09:02:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-04T09:05:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "VAL-NEG-least_likely-45",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:08:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-05T09:09:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-05T09:12:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "VAL-RES-least_likely-46",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:15:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-06T09:16:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-06T09:19:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "VAL-DES-least_likely-47",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:22:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-07T09:23:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-07T09:26:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "VAL-ABO-least_likely-48",
+          "from_behavior_id": "VAL",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:29:00-03:00",
+              "phone": "+15550000001",
+              "content": "Você acha que faz sentido para o meu caso? Alguém parecido comigo já usou?"
+            },
+            {
+              "timestamp": "2026-09-08T09:30:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-08T09:33:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "ENG": {
+      "meaning": "engajamento",
+      "most_likely_transitions": [
+        {
+          "id": "ENG-ENG-most_likely-49",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:36:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-09T09:37:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-09T09:40:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "ENG-ACE-most_likely-50",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:43:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-10T09:44:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-10T09:47:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "ENG-CUR-most_likely-51",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:00:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-11T09:01:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-11T09:04:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "ENG-COM-most_likely-52",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:07:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-12T09:08:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-12T09:11:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "ENG-VAL-most_likely-53",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:14:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-13T09:15:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-13T09:18:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "ENG-INP-most_likely-54",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:21:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-14T09:22:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-14T09:25:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "ENG-AAN-least_likely-55",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:28:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-15T09:29:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-15T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "ENG-HES-least_likely-56",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:35:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-16T09:36:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-16T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "ENG-RES-least_likely-57",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:42:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-17T09:43:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-17T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "ENG-DES-least_likely-58",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:49:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-18T09:50:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-18T09:53:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "ENG-NEG-least_likely-59",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:06:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-19T09:07:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-19T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "ENG-ABO-least_likely-60",
+          "from_behavior_id": "ENG",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:13:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi. Meu cenário é este: preciso organizar os pedidos de duas lojas e acompanhar tudo pelo WhatsApp. Como configuramos?"
+            },
+            {
+              "timestamp": "2026-09-20T09:14:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-20T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "ACE": {
+      "meaning": "aceitação",
+      "most_likely_transitions": [
+        {
+          "id": "ACE-ACE-most_likely-61",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:20:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-01T09:21:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-01T09:24:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "ACE-VAL-most_likely-62",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:27:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-02T09:28:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-02T09:31:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "ACE-ENG-most_likely-63",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:34:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-03T09:35:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-03T09:38:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "ACE-INP-most_likely-64",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:41:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-04T09:42:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-04T09:45:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "ACE-COM-most_likely-65",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:48:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-05T09:49:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-05T09:52:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "ACE-AAN-most_likely-66",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:05:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-06T09:06:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-06T09:09:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "ACE-CUR-least_likely-67",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:12:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-07T09:13:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-07T09:16:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "ACE-HES-least_likely-68",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:19:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-08T09:20:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-08T09:23:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "ACE-RES-least_likely-69",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:26:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-09T09:27:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-09T09:30:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "ACE-DES-least_likely-70",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:33:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-10T09:34:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-10T09:37:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "ACE-NEG-least_likely-71",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:40:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-11T09:41:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-11T09:44:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "ACE-ABO-least_likely-72",
+          "from_behavior_id": "ACE",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:47:00-03:00",
+              "phone": "+15550000001",
+              "content": "Certo, fez sentido. Quero seguir com essa solução."
+            },
+            {
+              "timestamp": "2026-09-12T09:48:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-12T09:51:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "INP": {
+      "meaning": "impulso",
+      "most_likely_transitions": [
+        {
+          "id": "INP-INP-most_likely-73",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "INP",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:04:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-13T09:05:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-13T09:08:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "INP-ACE-most_likely-74",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.2,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:11:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-14T09:12:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-14T09:15:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "INP-ENG-most_likely-75",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:18:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-15T09:19:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-15T09:22:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "INP-COM-most_likely-76",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:25:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-16T09:26:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-16T09:29:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "INP-VAL-most_likely-77",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-17T09:33:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-17T09:36:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "INP-AAN-most_likely-78",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-18T09:40:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-18T09:43:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "INP-CUR-least_likely-79",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-19T09:47:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-19T09:50:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "INP-RES-least_likely-80",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:03:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-20T09:04:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-20T09:07:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "INP-DES-least_likely-81",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-01T09:11:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-01T09:14:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "INP-HES-least_likely-82",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-02T09:18:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-02T09:21:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "INP-NEG-least_likely-83",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:24:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-03T09:25:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-03T09:28:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "INP-ABO-least_likely-84",
+          "from_behavior_id": "INP",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:31:00-03:00",
+              "phone": "+15550000001",
+              "content": "Fecho agora se for rápido. Me manda o link e pronto."
+            },
+            {
+              "timestamp": "2026-09-04T09:32:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-04T09:35:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "RES": {
+      "meaning": "resistência",
+      "most_likely_transitions": [
+        {
+          "id": "RES-RES-most_likely-85",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "RES",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:38:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-05T09:39:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-05T09:42:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "RES-NEG-most_likely-86",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:45:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-06T09:46:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-06T09:49:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "RES-COM-most_likely-87",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:02:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-07T09:03:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-07T09:06:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "RES-VAL-most_likely-88",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:09:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-08T09:10:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-08T09:13:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "RES-DES-most_likely-89",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:16:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-09T09:17:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-09T09:20:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "RES-AAN-most_likely-90",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:23:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-10T09:24:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-10T09:27:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "RES-HES-least_likely-91",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:30:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-11T09:31:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-11T09:34:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "RES-CUR-least_likely-92",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:37:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-12T09:38:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-12T09:41:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "RES-ENG-least_likely-93",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:44:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-13T09:45:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-13T09:48:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "RES-ACE-least_likely-94",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:01:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-14T09:02:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-14T09:05:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "RES-INP-least_likely-95",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:08:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-15T09:09:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-15T09:12:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "RES-ABO-least_likely-96",
+          "from_behavior_id": "RES",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:15:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não acho que isso resolva meu problema; já tentei ferramentas parecidas e só deu trabalho."
+            },
+            {
+              "timestamp": "2026-09-16T09:16:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-16T09:19:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    },
+    "NEG": {
+      "meaning": "negação",
+      "most_likely_transitions": [
+        {
+          "id": "NEG-NEG-most_likely-97",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:22:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-17T09:23:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-17T09:26:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "NEG-RES-most_likely-98",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:29:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-18T09:30:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-18T09:33:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "NEG-VAL-most_likely-99",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:36:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-19T09:37:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-19T09:40:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "NEG-DES-most_likely-100",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:43:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-20T09:44:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-20T09:47:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "NEG-AAN-most_likely-101",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:00:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-01T09:01:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-01T09:04:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "NEG-HES-most_likely-102",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:07:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-02T09:08:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-02T09:11:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "NEG-COM-least_likely-103",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:14:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-03T09:15:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-03T09:18:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "NEG-ENG-least_likely-104",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:21:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-04T09:22:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-04T09:25:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "NEG-ACE-least_likely-105",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:28:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-05T09:29:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-05T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "NEG-INP-least_likely-106",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:35:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-06T09:36:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-06T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "NEG-ABO-least_likely-107",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:42:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-07T09:43:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-07T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        },
+        {
+          "id": "NEG-CUR-least_likely-108",
+          "from_behavior_id": "NEG",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:49:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não preciso disso. Meu jeito atual já funciona e não vejo motivo para mudar."
+            },
+            {
+              "timestamp": "2026-09-08T09:50:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-08T09:53:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        }
+      ]
+    },
+    "DES": {
+      "meaning": "desinteresse",
+      "most_likely_transitions": [
+        {
+          "id": "DES-DES-most_likely-109",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "DES",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:06:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-09T09:07:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-09T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "DES-AAN-most_likely-110",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:13:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-10T09:14:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-10T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "DES-HES-most_likely-111",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:20:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-11T09:21:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-11T09:24:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "DES-CUR-most_likely-112",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:27:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-12T09:28:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-12T09:31:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "DES-COM-most_likely-113",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:34:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-13T09:35:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-13T09:38:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "DES-VAL-most_likely-114",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:41:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-14T09:42:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-14T09:45:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "DES-RES-least_likely-115",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:48:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-15T09:49:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-15T09:52:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "DES-NEG-least_likely-116",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:05:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-16T09:06:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-16T09:09:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "DES-ABO-least_likely-117",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:12:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-17T09:13:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-17T09:16:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        },
+        {
+          "id": "DES-ENG-least_likely-118",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:19:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-18T09:20:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-18T09:23:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "DES-ACE-least_likely-119",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:26:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-19T09:27:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-19T09:30:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "DES-INP-least_likely-120",
+          "from_behavior_id": "DES",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:33:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tá, mas sinceramente não estou muito interessado em continuar vendo isso."
+            },
+            {
+              "timestamp": "2026-09-20T09:34:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-20T09:37:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        }
+      ]
+    },
+    "ABO": {
+      "meaning": "abandono",
+      "most_likely_transitions": [
+        {
+          "id": "ABO-ABO-most_likely-121",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:40:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-01T09:41:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-03T09:44:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        },
+        {
+          "id": "ABO-NEG-most_likely-122",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:47:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-02T09:48:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-04T09:51:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "ABO-DES-most_likely-123",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:04:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-03T09:05:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-05T09:08:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "ABO-RES-most_likely-124",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:11:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-04T09:12:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-06T09:15:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "ABO-AAN-most_likely-125",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-05T09:18:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-05T09:19:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-07T09:22:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "ABO-HES-most_likely-126",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-06T09:25:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-06T09:26:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-08T09:29:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "ABO-COM-least_likely-127",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-07T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-07T09:33:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-09T09:36:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        },
+        {
+          "id": "ABO-VAL-least_likely-128",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-08T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-08T09:40:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-10T09:43:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "ABO-ACE-least_likely-129",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-09T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-09T09:47:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-11T09:50:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "ABO-INP-least_likely-130",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.8,
+          "messages": [
+            {
+              "timestamp": "2026-09-10T09:03:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-10T09:04:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-12T09:07:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "ABO-CUR-least_likely-131",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.9,
+          "messages": [
+            {
+              "timestamp": "2026-09-11T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-11T09:11:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-13T09:14:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "ABO-ENG-least_likely-132",
+          "from_behavior_id": "ABO",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.9,
+          "messages": [
+            {
+              "timestamp": "2026-09-12T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Vou deixar isso para lá por enquanto. Obrigado."
+            },
+            {
+              "timestamp": "2026-09-12T09:18:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-14T09:21:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        }
+      ]
+    },
+    "AAN": {
+      "meaning": "ansiedade",
+      "most_likely_transitions": [
+        {
+          "id": "AAN-AAN-most_likely-133",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "AAN",
+          "transition_cost": 0,
+          "messages": [
+            {
+              "timestamp": "2026-09-13T09:24:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-13T09:25:00-03:00",
+              "phone": "system",
+              "content": "Sem pressa. Vamos reduzir isso a uma decisão pequena, sem prazo e sem risco agora."
+            },
+            {
+              "timestamp": "2026-09-13T09:32:00-03:00",
+              "phone": "+15550000001",
+              "content": "Estou com receio de decidir errado e depois não conseguir resolver; preciso de um momento."
+            }
+          ]
+        },
+        {
+          "id": "AAN-HES-most_likely-134",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "HES",
+          "transition_cost": 0.2,
+          "messages": [
+            {
+              "timestamp": "2026-09-14T09:31:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-14T09:32:00-03:00",
+              "phone": "system",
+              "content": "Sem problema. Em vez de decidir agora, vamos isolar só o ponto que está pesando mais para você."
+            },
+            {
+              "timestamp": "2026-09-14T09:39:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi a explicação, mas quero pensar mais um pouco antes de decidir."
+            }
+          ]
+        },
+        {
+          "id": "AAN-CUR-most_likely-135",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "CUR",
+          "transition_cost": 0.3,
+          "messages": [
+            {
+              "timestamp": "2026-09-15T09:38:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-15T09:39:00-03:00",
+              "phone": "system",
+              "content": "Boa pergunta. Vou te mostrar um exemplo curto e direto aplicado ao seu dia a dia."
+            },
+            {
+              "timestamp": "2026-09-15T09:46:00-03:00",
+              "phone": "+15550000001",
+              "content": "Agora fiquei curioso: você consegue me mostrar essa parte funcionando?"
+            }
+          ]
+        },
+        {
+          "id": "AAN-VAL-most_likely-136",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "VAL",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-16T09:45:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-16T09:46:00-03:00",
+              "phone": "system",
+              "content": "Posso te dar referências verificáveis e explicar o que cada caso tinha em comum com o seu."
+            },
+            {
+              "timestamp": "2026-09-16T09:53:00-03:00",
+              "phone": "+15550000001",
+              "content": "Tem algum cliente com um caso parecido com o meu que eu possa usar como referência?"
+            }
+          ]
+        },
+        {
+          "id": "AAN-INP-most_likely-137",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "INP",
+          "transition_cost": 0.4,
+          "messages": [
+            {
+              "timestamp": "2026-09-17T09:02:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-17T09:03:00-03:00",
+              "phone": "system",
+              "content": "Consigo deixar isso rápido; antes, confirmo apenas um detalhe para você não comprar algo inadequado."
+            },
+            {
+              "timestamp": "2026-09-17T09:10:00-03:00",
+              "phone": "+15550000001",
+              "content": "É isso, já vou fazer agora. Me envia o link de pagamento."
+            }
+          ]
+        },
+        {
+          "id": "AAN-COM-most_likely-138",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "COM",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-18T09:09:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-18T09:10:00-03:00",
+              "phone": "system",
+              "content": "Faz sentido comparar. Vou separar os critérios objetivos que normalmente mudam essa decisão."
+            },
+            {
+              "timestamp": "2026-09-18T09:17:00-03:00",
+              "phone": "+15550000001",
+              "content": "Então quero comparar preço, suporte e o que cada opção entrega antes de escolher."
+            }
+          ]
+        }
+      ],
+      "least_likely_transitions": [
+        {
+          "id": "AAN-DES-least_likely-139",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "DES",
+          "transition_cost": 0.5,
+          "messages": [
+            {
+              "timestamp": "2026-09-19T09:16:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-19T09:17:00-03:00",
+              "phone": "system",
+              "content": "Vou ser bem objetivo: em uma frase, o ganho seria reduzir o trabalho manual dos pedidos."
+            },
+            {
+              "timestamp": "2026-09-19T09:24:00-03:00",
+              "phone": "+15550000001",
+              "content": "Entendi, mas não quero gastar mais tempo com esse assunto agora."
+            }
+          ]
+        },
+        {
+          "id": "AAN-ENG-least_likely-140",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "ENG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-20T09:23:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-20T09:24:00-03:00",
+              "phone": "system",
+              "content": "Perfeito. Vamos transformar esse contexto em uma configuração inicial, passo a passo."
+            },
+            {
+              "timestamp": "2026-09-20T09:31:00-03:00",
+              "phone": "+15550000001",
+              "content": "Pode montar esse fluxo comigo? Quero testar ainda hoje com a minha equipe."
+            }
+          ]
+        },
+        {
+          "id": "AAN-ACE-least_likely-141",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "ACE",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-01T09:30:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-01T09:31:00-03:00",
+              "phone": "system",
+              "content": "Ótimo. Vou deixar o próximo passo simples e sem nenhuma etapa desnecessária."
+            },
+            {
+              "timestamp": "2026-09-01T09:38:00-03:00",
+              "phone": "+15550000001",
+              "content": "Perfeito, pode me mandar o próximo passo para eu contratar."
+            }
+          ]
+        },
+        {
+          "id": "AAN-RES-least_likely-142",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "RES",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-02T09:37:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-02T09:38:00-03:00",
+              "phone": "system",
+              "content": "Entendo a frustração. Não quero te pressionar; me diga qual parte falhou antes para avaliarmos com honestidade."
+            },
+            {
+              "timestamp": "2026-09-02T09:45:00-03:00",
+              "phone": "+15550000001",
+              "content": "Ainda não estou convencido; parece que vai dar mais trabalho do que benefício."
+            }
+          ]
+        },
+        {
+          "id": "AAN-NEG-least_likely-143",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "NEG",
+          "transition_cost": 0.6,
+          "messages": [
+            {
+              "timestamp": "2026-09-03T09:44:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-03T09:45:00-03:00",
+              "phone": "system",
+              "content": "Entendo sua posição. Posso comparar o seu processo atual com um caso concreto, sem compromisso de mudança."
+            },
+            {
+              "timestamp": "2026-09-03T09:52:00-03:00",
+              "phone": "+15550000001",
+              "content": "Não, para mim isso não muda nada. Vou continuar como estou."
+            }
+          ]
+        },
+        {
+          "id": "AAN-ABO-least_likely-144",
+          "from_behavior_id": "AAN",
+          "to_behavior_id": "ABO",
+          "transition_cost": 0.7,
+          "messages": [
+            {
+              "timestamp": "2026-09-04T09:01:00-03:00",
+              "phone": "+15550000001"
+            },
+            {
+              "timestamp": "2026-09-04T09:02:00-03:00",
+              "phone": "system",
+              "content": "Tudo bem. Posso encerrar por aqui; se fizer sentido depois, deixo uma única informação útil para você retomar."
+            },
+            {
+              "timestamp": "2026-09-04T09:09:00-03:00",
+              "phone": "+15550000001",
+              "content": "Obrigado, mas vou encerrar por aqui e não vou seguir com isso."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
