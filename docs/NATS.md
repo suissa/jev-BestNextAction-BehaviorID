@@ -1,6 +1,6 @@
-# NATS
+# NATS adapter
 
-Start a local NATS server:
+Run NATS:
 
 ```bash
 docker run --rm -p 4222:4222 nats:latest
@@ -9,42 +9,41 @@ docker run --rm -p 4222:4222 nats:latest
 Start the worker:
 
 ```bash
-OPENROUTER_API_KEY=... NATS_URL=nats://127.0.0.1:4222 bun run nats
+bun run nats
 ```
 
-Default input subject:
+Defaults:
 
-```
-behaviorid.predict
-```
+- input subject: `behaviorid.predict`
+- output subject: `behaviorid.predicted`
+- NATS URL: `nats://127.0.0.1:4222`
 
-Default output subject:
+Override with `NATS_SUBJECT_IN`, `NATS_SUBJECT_OUT`, and `NATS_URL`.
 
-```
-behaviorid.predicted
-```
-
-Request payload:
+## Behavior trajectory request
 
 ```json
 {
-  "correlationId": "example-1",
+  "kind": "behaviorid",
+  "correlationId": "optional-id",
   "messages": [
-    {"content":"I liked it, but it seems expensive","timestamp":"2026-09-23T10:00:00Z"},
-    {"content":"The competitor has something similar","timestamp":"2026-09-23T10:01:15Z"},
-    {"content":"What exactly is the difference?","timestamp":"2026-09-23T10:03:40Z"}
+    {"content":"...","timestamp":"..."},
+    {"content":"...","timestamp":"..."},
+    {"content":"...","timestamp":"..."}
   ]
 }
 ```
 
-If request/reply is used, the response is sent to the NATS reply subject. For ordinary publish, the result is emitted on `behaviorid.predicted`.
-
-Error shape:
+## Customer-service action map request
 
 ```json
 {
-  "ok": false,
-  "durationMs": 7,
-  "error": "..."
+  "kind": "customer_service_actions",
+  "correlationId": "optional-id",
+  "customerPrevious": {"content":"...","timestamp":"..."},
+  "systemPrevious": {"content":"...","timestamp":"..."},
+  "customerLatest": {"content":"...","timestamp":"..."}
 }
 ```
+
+Both requests return `{ correlationId, kind, ok, durationMs, result }` through the reply subject when present, otherwise on the output subject. Customer-service action results contain the full candidate distribution and never authorize or execute an action.
