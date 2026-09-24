@@ -1,0 +1,10 @@
+{
+  "name": "@suissa/jev-behaviorid-nats",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@suissa/jev-behaviorid": "workspace:*",
+    "nats": "^2.29.3",
+    "zod": "^4.1.5"
+  }
+}
